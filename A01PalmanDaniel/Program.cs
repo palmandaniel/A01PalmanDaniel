@@ -32,14 +32,22 @@ namespace A01PalmanDaniel
             }
             sr.Close();
         }
-        static void Maximumertek()
-        { 
-            
+        static int Maximumertek()
+        {
+            int max = adat[0];
+            for (int i = 0; i < adat.Length; i++)
+            {
+                if (adat[i]>max)
+                {
+                    max = adat[i];
+                }
+            }
+            return Maximumertek();
         }
         static void Main(string[] args)
         {
             Beolvasas();
-            Maximumertek();
+            Console.WriteLine("A maximum: {0}", Maximumertek());
             Console.ReadKey();
 
         }
