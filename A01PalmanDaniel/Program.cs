@@ -10,6 +10,8 @@ namespace A01PalmanDaniel
     {
         static void Main(string[] args)
         {
+
+
         }
     }
 }
