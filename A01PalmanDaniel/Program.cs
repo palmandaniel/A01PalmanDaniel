@@ -25,7 +25,7 @@ namespace A01PalmanDaniel
                 for (int i = 0; i < adatok.Length; i++)
                 {
                     adat[i] = adatok[i] * 2;
-                    Console.WriteLine("{0}",adat);
+                    //Console.WriteLine("{0}",adat);
                 }
                 
 
@@ -42,12 +42,39 @@ namespace A01PalmanDaniel
                     max = adat[i];
                 }
             }
-            return Maximumertek();
+            return max;
+        }
+
+        static int Egyediek()
+        {
+            int db = 0;
+           
+            for (int i = 0; i < adat.Length; i++)
+            {
+                if (adat[i]%5 == 0 && adat[i]%7 == 0)
+                {
+                    db++;
+                    i = egyedi[i];
+                }
+            }
+            StreamWriter sw = new StreamWriter("egyediek.txt", true);
+            for (int i = 0; i < egyedi.Length; i++)
+            {
+                sw.WriteLine("{0}", egyedi[i]);
+            }
+
+            sw.Close();
+
+            return db;
+
+            
+
         }
         static void Main(string[] args)
         {
             Beolvasas();
             Console.WriteLine("A maximum: {0}", Maximumertek());
+            Console.WriteLine("5 és 7 oszthatóak száma: {0}", Egyediek());
             Console.ReadKey();
 
         }
